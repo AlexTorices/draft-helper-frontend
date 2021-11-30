@@ -15,6 +15,7 @@ export function ChampionGrid(props) {
     const [enemyChampions, setEnemyChampions]= useState([])
     const [history, setHistory] = useState([])
     const [turnOf, setTurnOf] = useState("blue")
+    const [turn, setTurn]  = useState(0)
 
     const changeTurn = () => {
         if (turnOf === "blue")
@@ -24,6 +25,9 @@ export function ChampionGrid(props) {
     }
 
     const onChampionSelect = (championId, callback) => {
+        if (turn >= 10)
+            return 
+
         if (turnOf === "red") { // Red is enemy
             if(!enemyChampions.includes(championId)) {
                 enemyChampions.push(championId)
@@ -37,6 +41,7 @@ export function ChampionGrid(props) {
         }
         callback()
         changeTurn()
+        setTurn(turn + 1)
     }
 
 
@@ -65,6 +70,7 @@ export function ChampionGrid(props) {
                 <Col>
                 <Container style={{maxWidth: '400px'}}>
                     <h1>Turn <a style={{backgroundColor: turnOf}}> {turnOf}</a></h1>
+                    <p>{turn}</p>
                     <Row md={4}>
                         {champions2}
                     </Row>
