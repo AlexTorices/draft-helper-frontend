@@ -1,0 +1,54 @@
+.header-container {
+    height: 90vh;
+    background-color: #0093E9;
+    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+}
+
+section {
+    margin-top: 4rem;
+}
+
+body {
+    font-size: 16.8px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #FEFEFA;
+}
+.main-title {
+    color: #FEFEFA;
+    letter-spacing: 1px;
+    position: absolute;
+    left: 50vw;
+    top: 45vh;
+    transform: translateX(-50%);
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.navbar {
+    background: none;
+}
+
+.container {
+    max-width: 700px;
+}
+
+.container-text {
+    margin-top: 2rem;
+}
+
+.title1 {
+    text-align: center;
+}
+
+.img-ashe {
+    margin-top: 1rem;
+}
+
+footer {
+    margin-top: 6rem;
+    height: 100px; 
+    background-color: #1b1b1b;
+    color: #FEFEFA;
+    text-align: center;
+    padding-top: 30px;
+}

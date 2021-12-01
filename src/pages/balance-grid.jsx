@@ -1,93 +1,96 @@
 import React from "react";
 import { ChampionGrid } from "../components/champion-grid";
-
+import { LolHeader } from "../components/header";
 export function BalanceGrid() {
 
     const champions = [
         {
             id : 1,
             name : "Ashe",
-            imgUrl : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzwVALTU4XGlhm9-dmuS13_SSHMIgY3SjrSw&usqp=CAU"
+            imgUrl : "https://opgg-static.akamaized.net/images/lol/champion/Ashe.png"
         },
         {
             id : 2,
             name : "Diana",
-            imgUrl : "https://avatarfiles.alphacoders.com/210/210077.jpg"
+            imgUrl : "https://opgg-static.akamaized.net/images/lol/champion/Diana.png"
         },
         {
             id : 3,
-            name : "Diana",
-            imgUrl : "https://avatarfiles.alphacoders.com/210/210077.jpg"
+            name : "Sivir",
+            imgUrl : "https://opgg-static.akamaized.net/images/lol/champion/Sivir.png"
         },
         {
             id : 4,
-            name : "Diana",
-            imgUrl : "https://avatarfiles.alphacoders.com/210/210077.jpg"
+            name : "Ahri",
+            imgUrl : "https://opgg-static.akamaized.net/images/lol/champion/Ahri.png"
         },
         {
             id : 5,
-            name : "Diana",
-            imgUrl : "https://avatarfiles.alphacoders.com/210/210077.jpg"
+            name : "Alistar",
+            imgUrl : "https://opgg-static.akamaized.net/images/lol/champion/Alistar.png"
         },
         {
             id : 6,
-            name : "Diana",
-            imgUrl : "https://avatarfiles.alphacoders.com/210/210077.jpg"
+            name : "Brand",
+            imgUrl : "https://opgg-static.akamaized.net/images/lol/champion/Brand.png"
         },
         {
             id : 7,
-            name : "Diana",
-            imgUrl : "https://avatarfiles.alphacoders.com/210/210077.jpg"
+            name : "Caitlyn",
+            imgUrl : "https://opgg-static.akamaized.net/images/lol/champion/Caitlyn.png"
         },
         {
             id : 8,
-            name : "Diana",
-            imgUrl : "https://avatarfiles.alphacoders.com/210/210077.jpg"
+            name : "Corki",
+            imgUrl : "https://opgg-static.akamaized.net/images/lol/champion/Corki.png"
         },
         {
             id : 9,
-            name : "Diana",
-            imgUrl : "https://avatarfiles.alphacoders.com/210/210077.jpg"
+            name : "Ekko",
+            imgUrl : "https://opgg-static.akamaized.net/images/lol/champion/Ekko.png"
         },
         {
             id : 10,
-            name : "Diana",
-            imgUrl : "https://avatarfiles.alphacoders.com/210/210077.jpg"
+            name : "Elise",
+            imgUrl : "https://opgg-static.akamaized.net/images/lol/champion/Elise.png"
         },
         {
             id : 11,
-            name : "Diana",
-            imgUrl : "https://avatarfiles.alphacoders.com/210/210077.jpg"
+            name : "Fizz",
+            imgUrl : "https://opgg-static.akamaized.net/images/lol/champion/Fizz.png"
         },
         {
             id : 12,
-            name : "Diana",
-            imgUrl : "https://avatarfiles.alphacoders.com/210/210077.jpg"
+            name : "Gwen",
+            imgUrl : "https://opgg-static.akamaized.net/images/lol/champion/Gwen.png"
         },
         {
             id : 13,
-            name : "Diana",
-            imgUrl : "https://avatarfiles.alphacoders.com/210/210077.jpg"
+            name : "Irelia",
+            imgUrl : "https://opgg-static.akamaized.net/images/lol/champion/Irelia.png"
         },
         {
             id : 14,
-            name : "Diana",
-            imgUrl : "https://avatarfiles.alphacoders.com/210/210077.jpg"
+            name : "Kled",
+            imgUrl : "https://opgg-static.akamaized.net/images/lol/champion/Kled.png"
         },
         {
             id : 15,
-            name : "Diana",
-            imgUrl : "https://avatarfiles.alphacoders.com/210/210077.jpg"
+            name : "Nami",
+            imgUrl : "https://opgg-static.akamaized.net/images/lol/champion/Nami.png"
         },
         {
             id : 16,
-            name : "Diana",
-            imgUrl : "https://avatarfiles.alphacoders.com/210/210077.jpg"
+            name : "Pyke",
+            imgUrl : "https://opgg-static.akamaized.net/images/lol/champion/Pyke.png"
         }
     ]
 
     return (
+        <div>
+            <LolHeader></LolHeader>
             <ChampionGrid champions={champions} title="WTF"/>
+        </div>
     )
 
 }

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { ChampionCard } from './champion-card'
+import { SelectChampion } from './select-champion'
+import { SelectEnemyChampion } from './select-enemy-champion'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
@@ -53,30 +55,42 @@ export function ChampionGrid(props) {
         )
     })
 
+    const champ={
+        id:1,
+        name: "Akali",
+        imgUrl: "https://avatarfiles.alphacoders.com/210/210077.jpg"
+
+    }
+
     const selectedTeamChampions = teamChampions.map(champId => {
-        return <p>{champId}</p>
+        return (
+            <SelectChampion champion={champ}></SelectChampion>
+        )
     }) 
 
     const selectedEnemyChampions = enemyChampions.map(champId => {
-        return <p>{champId}</p>
+        return (
+            <SelectEnemyChampion champion={champ}></SelectEnemyChampion>
+        )
     }) 
 
     return (
-        <div>
+        <div style={{maxWidth:'1200px', margin: '0 auto', padding: '24px'}}>
             <Row>
-                <Col> 
+                <Col>
+                    <h1 style={{backgroundColor: '#4169e1'}}> Blue team</h1>
                     {selectedTeamChampions}
                 </Col>
                 <Col>
                 <Container style={{maxWidth: '400px'}}>
                     <h1>Turn <a style={{backgroundColor: turnOf}}> {turnOf}</a></h1>
-                    <p>{turn}</p>
                     <Row md={4}>
                         {champions2}
                     </Row>
                 </Container>
                 </Col>
                 <Col>
+                    <h1 style={{backgroundColor: '#de1738'}}> Red Team</h1>
                     {selectedEnemyChampions}
                 </Col>
             </Row>

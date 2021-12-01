@@ -9,7 +9,10 @@ import { ChampionGrid } from './components/champion-grid';
 import { BalanceGrid } from './pages/balance-grid';
 ReactDOM.render(
   <React.StrictMode>
+    <div >
     <BalanceGrid></BalanceGrid>
+
+    </div>
   </React.StrictMode>,
   document.getElementById('root')
 );
