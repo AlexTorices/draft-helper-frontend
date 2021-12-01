@@ -30,11 +30,11 @@ export function SelectChampion(props) {
             <div style={imgContainerStyle}>
                 <img
                     style={imgStyle}
-                    src={props.champion.imgUrl}
-                    alt={props.champion.name} />
+                    src={`https://opgg-static.akamaized.net/images/lol/champion/${props.name}.png`}
+                    alt={props.name} />
             </div>
             <div style={{paddingLeft: '8px'}}>
-                <a style={{display: 'block'}}>{props.champion.name}</a>
+                <a style={{display: 'block'}}>{props.name}</a>
             </div>
 
         </div>

@@ -56,7 +56,7 @@ export function ChampionCard(props) {
                 src={props.champion.imgUrl} 
                 alt={props.champion.name}
                 style={cardStyles}
-                onClick={() => props.onSelect(props.champion.id, updateChampionSinergy)} />
+                onClick={() => props.onSelect(props.champion.name, updateChampionSinergy)} />
         </div>
     )
 }

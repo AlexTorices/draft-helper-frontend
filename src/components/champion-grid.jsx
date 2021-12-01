@@ -26,18 +26,18 @@ export function ChampionGrid(props) {
             setTurnOf("blue")
     }
 
-    const onChampionSelect = (championId, callback) => {
+    const onChampionSelect = (championName, callback) => {
         if (turn >= 10)
             return 
 
         if (turnOf === "red") { // Red is enemy
-            if(!enemyChampions.includes(championId)) {
-                enemyChampions.push(championId)
+            if(!enemyChampions.includes(championName)) {
+                enemyChampions.push(championName)
                 setEnemyChampions(enemyChampions.slice())
             }
         } else if (turnOf === "blue") { // Your team is blue
-            if(!teamChampions.includes(championId)) {
-                teamChampions.push(championId)
+            if(!teamChampions.includes(championName)) {
+                teamChampions.push(championName)
                 setTeamChampions(teamChampions.slice())
             }
         }
@@ -62,15 +62,15 @@ export function ChampionGrid(props) {
 
     }
 
-    const selectedTeamChampions = teamChampions.map(champId => {
+    const selectedTeamChampions = teamChampions.map(name => {
         return (
-            <SelectChampion champion={champ}></SelectChampion>
+            <SelectChampion name={name}></SelectChampion>
         )
     }) 
 
-    const selectedEnemyChampions = enemyChampions.map(champId => {
+    const selectedEnemyChampions = enemyChampions.map(name => {
         return (
-            <SelectEnemyChampion champion={champ}></SelectEnemyChampion>
+            <SelectEnemyChampion name={name}></SelectEnemyChampion>
         )
     }) 
 
