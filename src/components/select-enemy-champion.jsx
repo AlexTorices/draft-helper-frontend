@@ -23,7 +23,10 @@ export function SelectEnemyChampion(props) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-end',
-        padding: '8px'
+        margin: '8px',
+        padding: '8px',
+        border: '3px solid #de1738',
+        borderRadius: '2px'
     }
 
     return (

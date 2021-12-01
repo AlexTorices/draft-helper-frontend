@@ -22,7 +22,10 @@ export function SelectChampion(props) {
     const rowStyle = {
         display: 'flex',
         alignItems: 'center',
-        padding: '8px'
+        margin: '8px',
+        padding: '8px',
+        border: '3px solid #0093E9',
+        borderRadius: '2px'
     }
 
     return (

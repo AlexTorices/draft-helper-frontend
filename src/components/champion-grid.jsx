@@ -78,7 +78,7 @@ export function ChampionGrid(props) {
         <div style={{maxWidth:'1200px', margin: '0 auto', padding: '24px'}}>
             <Row>
                 <Col>
-                    <h1 style={{backgroundColor: '#4169e1'}}> Blue team</h1>
+                    <h1 style={{color: '#0093E9'}}> Blue team</h1>
                     {selectedTeamChampions}
                 </Col>
                 <Col>
@@ -90,7 +90,7 @@ export function ChampionGrid(props) {
                 </Container>
                 </Col>
                 <Col>
-                    <h1 style={{backgroundColor: '#de1738'}}> Red Team</h1>
+                    <h1 style={{color: '#de1738'}}> Red Team</h1>
                     {selectedEnemyChampions}
                 </Col>
             </Row>

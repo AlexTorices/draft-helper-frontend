@@ -1,5 +1,6 @@
 import React from "react";
 import { ChampionGrid } from "../components/champion-grid";
+import { FooterLol } from "../components/footer";
 import { LolHeader } from "../components/header";
 export function BalanceGrid() {
 
@@ -90,6 +91,7 @@ export function BalanceGrid() {
         <div>
             <LolHeader></LolHeader>
             <ChampionGrid champions={champions} title="WTF"/>
+            <FooterLol></FooterLol>
         </div>
     )
 
