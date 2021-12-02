@@ -5,9 +5,16 @@ import { SelectEnemyChampion } from './select-enemy-champion'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
+import { getChampions } from "../api/Api";
+import axios from 'axios';
+
 
 function weakTo(championId) {
     return [ 1, 2, 3, 4]
+}
+
+function capitalize(word){
+    return word[0].toUpperCase() + word.slice(1).toLowerCase();
 }
 
 
@@ -18,6 +25,13 @@ export function ChampionGrid(props) {
     const [history, setHistory] = useState([])
     const [turnOf, setTurnOf] = useState("blue")
     const [turn, setTurn]  = useState(0)
+
+    const [champions, setChampions] = useState([])
+    useEffect(() => {
+        axios('http://localhost:8085/getChamp')
+            .then(response => setChampions(response.data))
+    }, [])
+
 
     const changeTurn = () => {
         if (turnOf === "blue")
@@ -47,7 +61,7 @@ export function ChampionGrid(props) {
     }
 
 
-    const champions2 = props.champions.map(champion => {
+    const champions2 = champions.map(champion => {
         return (
             <Col>
                 <ChampionCard champion={champion} onSelect={onChampionSelect} team={teamChampions} enemy={enemyChampions} />
@@ -64,13 +78,13 @@ export function ChampionGrid(props) {
 
     const selectedTeamChampions = teamChampions.map(name => {
         return (
-            <SelectChampion name={name}></SelectChampion>
+            <SelectChampion name={capitalize(name)}></SelectChampion>
         )
     }) 
 
     const selectedEnemyChampions = enemyChampions.map(name => {
         return (
-            <SelectEnemyChampion name={name}></SelectEnemyChampion>
+            <SelectEnemyChampion name={capitalize(name)}></SelectEnemyChampion>
         )
     }) 
 
@@ -98,3 +112,4 @@ export function ChampionGrid(props) {
         </div>
     )
 }
+

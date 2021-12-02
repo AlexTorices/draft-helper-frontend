@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { weakAgainst } from '../command/weak-to';
 import {synergyWith as synergyWith} from '../command/synergy-with'
+import axios from 'axios';
 
-function computeSynergyPuntation(championId, selectedEnemies) {
-    return synergyWith(championId, selectedEnemies);
+
+function computeSynergyPuntation(champName, selectedEnemies) {
+    //return synergyWith(championId, selectedEnemies);
+    return axios.post("http://localhost:8085/getStrongAgainst", {"id_winner": champName})
 }
 
-function computeWeakToPuntation(championId, selectedEnemies) {
-    return weakAgainst(championId, selectedEnemies);
+function computeWeakToPuntation(champName, selectedEnemies) {
+    return axios.post("http://localhost:8085/getWeakAgainst", {"id_loser": champName})
 }
 
 export function ChampionCard(props) {
@@ -21,8 +24,27 @@ export function ChampionCard(props) {
     const [selected, setSelected] = useState(false)
     
     useEffect(() => {
-        setSynergyWith(computeSynergyPuntation(props.champion.id, props.enemy))
-        setWeakTo(computeWeakToPuntation(props.champion.id, props.enemy))
+        computeSynergyPuntation(props.champion.champName, props.enemy)
+        .then(response => {
+            var counter = 1;
+            response.data.forEach(resp => {
+                if (props.enemy.includes(resp["id_loser"])){
+                    counter += 1
+                }
+            });
+            setSynergyWith(counter)
+        })
+
+        computeWeakToPuntation(props.champion.champName, props.enemy)
+        .then(response => {
+            var counter = 1;
+            response.data.forEach(resp => {
+                if (props.enemy.includes(resp["id_winner"])){
+                    counter += 1
+                }
+            });
+            setWeakTo(counter)
+        })
 
     })
 
@@ -53,10 +75,10 @@ export function ChampionCard(props) {
     return (
         <div style={{display: 'inline-block', padding: '4px'}}>
             <img 
-                src={props.champion.imgUrl} 
-                alt={props.champion.name}
+                src={props.champion.image} 
+                alt={props.champion.champName}
                 style={cardStyles}
-                onClick={() => props.onSelect(props.champion.name, updateChampionSinergy)} />
+                onClick={() => props.onSelect(props.champion.champName, updateChampionSinergy)} />
         </div>
     )
 }
