@@ -5,45 +5,45 @@ import Container from 'react-bootstrap/Container'
 import axios from 'axios'
 
 
-export function SynergyForm() {
+export function MatchupForm() {
 
-    const [champ1, setChamp1] = useState("")
-    const [champ2, setChamp2] = useState("")
+    const [winner, setWinner] = useState("")
+    const [loser, setLoser] = useState("")
 
     function handleSubmit() {
-        axios.post("http://localhost:8085/addSynergy", {
-            "id_1": champ1,
-            "id_2": champ2
+        axios.post("http://localhost:8085/addMatchup", {
+            "id_winner": winner,
+            "id_loser": loser
         }).then( _ => {
             alert("Done")
-            setChamp1("")
-            setChamp2("")
+            setWinner("")
+            setLoser("")
         })
     }
 
     function onDelete() {
-        axios.delete("http://localhost:8085/deleteSynergy", {data:{
-            "id_1": champ1,
-            "id_2": champ2
+        axios.delete("http://localhost:8085/deleteMatchup", {data:{
+            "id_winner": winner,
+            "id_loser": loser
         }}).then( _ => {
             alert("Deleted")
-            setChamp1("")
-            setChamp2("")
+            setWinner("")
+            setLoser("")
         })
     }
 
     return (
         <Container style={{maxWidth:'700px'}}>
-        <h3> Sinergia entre campeones</h3>
+        <h3> Enfrentamiento de campeones</h3>
         <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="champNameWinner">
-                <Form.Label>Nombre del campeón</Form.Label>
-                <Form.Control type="text" placeholder="Ingresa nombre del campeón" value={champ1} onChange={event => setChamp1(event.target.value)} />
+                <Form.Label>Campeón ganador</Form.Label>
+                <Form.Control type="text" placeholder="Ingresa nombre del campeón" value={winner} onChange={event => setWinner(event.target.value)} />
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="champNameLoser">
-                <Form.Label>Nombre del campeón</Form.Label>
-                <Form.Control type="text" placeholder="Ingresa nombre del campeón" value={champ2} onChange={event => setChamp2(event.target.value)} />
+                <Form.Label>Campeón perdedor</Form.Label>
+                <Form.Control type="text" placeholder="Ingresa nombre del campeón" value={loser} onChange={event => setLoser(event.target.value)} />
             </Form.Group>
             
             <Button variant="primary" type="submit" style={{marginRight: '16px'}}>
